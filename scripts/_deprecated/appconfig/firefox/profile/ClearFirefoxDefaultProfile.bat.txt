@@ -1,0 +1,3 @@
+
+RMDIR /S /Q "%APPDATA%\Mozilla\Firefox\Profiles"
+DEL /F "%APPDATA%\Mozilla\Firefox\profiles.ini"

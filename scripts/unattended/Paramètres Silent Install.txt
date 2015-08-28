@@ -1,0 +1,861 @@
+Avast \setupfre.exe /VERYSILENT /SP
+
+WindowsInstaller2 /quiet /norestart
+
+WindowsInstaller3 /quiet /norestart
+
+Firefox \firefox.exe /S /noreboot
+
+AppleMobileDeviceSupport.msi /qn REBOOT=Suppress
+AppleSoftwareUpdate.msi /qn REBOOT=Suppress
+QuickTime.msi /qn REBOOT=Suppress
+iTunes.msi /qn REBOOT=Suppress
+
+Winrar /s /noreboot
+
+PhotoFiltre.exe /S /noreboot
+
+IE8\update\iesetup /passive /no-default /norestart
+
+Adobe \acrobat.msi /S /qn /sAll /rs /noreboot
+
+VLC /S /noreboot
+
+pspvideo /S /noreboot
+
+VistaInspirat.exe /S /qn /sAll /rs /noreboot
+
+Framework /quiet /norestart
+
+iTunes64Setup.exe /quiet /passive /noreboot
+
+7-Zip : xxx.exe -y /q /r:n
+
+AC'97 Carte son : wdm_a364
+Paramètre Silencieux : setup.exe -s -f1"%systemdrive%\APPS\wdm_a364\setup.iss"
+
+ABC : xxx.exe /S
+
+ACDSee : xxx.exe /S /v\"/qn REBOOT=REALLYSUPPRESS\"
+Ajouter ce qui suit dans un *.reg en remplaçant à chaque fois les XXX-XXX-XXX-XXX-XXX-XXX par votre clé d'enregistrement
+[HKEY_LOCAL_MACHINE\SOFTWARE\ACD Systems\61]
+"LicenseNumber"="XXX-XXX-XXX-XXX-XXX-XXX"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ACD Systems\ACDSee\60]
+"LicenseNumber"="XXX-XXX-XXX-XXX-XXX-XXX"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ACD Systems\FotoCanvas\30]
+"LicenseNumber"="XXX-XXX-XXX-XXX-XXX-XXX"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ACD Systems\FotoSlate\30]
+"LicenseNumber"="XXX-XXX-XXX-XXX-XXX-XXX"
+
+Acoustica MP3 CD Burner : xxx.exe /S (lance une fenêtre Internet après l'installation)
+
+Acronis True Image 8.0
+Paramètre Silencieux : /silent
+
+Ad-aware : xxx.exe /S (lance un scan après l'installation)
+
+Ad-aware SE
+Paramètre Silencieux : /s
+Créez deux fichiers.
+Ad.bat
+CODE
+@echo off
+start /wait %systemdrive%\app\adaware.exe /s
+start /wait %systemdrive%\app\ad.vbs
+ad.vbs
+CODE
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WScript.Sleep 2000
+WshShell.Run ("Taskkill.exe /F /IM hh.exe")
+WScript.Sleep 1000
+WshShell.Run ("Taskkill.exe /F /IM Ad-Aware.exe")
+WScript.Quit
+Il suffit de lancer %systemroot%\app\ad.bat
+
+Adaware 6.x
+Paramètre Silencieux : /S
+Créer un VBS
+CODE
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WshShell.Popup "ne touchez pas à la sourris ni au clavier",5," - Warning - ",48
+WshShell.Run ("%systemdrive%\install\adaware\Ad-aware.6.Pro.Build.181.exe /S")
+WScript.Sleep 5000
+WshShell.SendKeys "XXXXXXX"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Quit
+et l'exécuter
+CODE
+start /wait %systemdrive%\install\adaware\adaware.vbs
+
+Adaware fr
+Paramètre Silencieux : /S
+
+Adobe Acrobat Reader 6.0
+Paramètre Silencieux : -p"-s /v\"/qn\"" OU decompresser , utiliser le . msi avec /qn
+
+Adobe Acrobat Reader 7.0
+Paramètre Silencieux : /S /v/qn
+
+Adobe Photoshop : xxx.exe /s /v\"/QN REBOOT=REALLYSUPPRESS\"
+
+Adobe Reader : 2 solutions
+xxx.exe -p"-s /v\"/qn\""
+Décompresser l'exe : xxx.msi /qn
+Advanced Uninstaller : xxx.exe /SILENT
+
+Ahead Nero : 2 solutions :
+xxx.exe /SILENT /NOREBOOT /no_ui /SN=xxxx-xxxx-xxxx-xxxx-xxxx-xxxx /WRITE_SN
+Remplacez xxxx-xxxx-xxxx-xxxx-xxxx-xxxx. Si vous n'en avez pas, laissez juste /SILENT /NOREBOOT /no_ui
+xxx.exe /SILENT /NOREBOOT /no_ui
+Ajouter ce qui suit dans un *.reg en remplaçant les champs par vos informations
+[HKEY_LOCAL_MACHINE\SOFTWARE\Ahead\Nero - Burning Rom\Info]
+"User"="VotreNom"
+"Company"="VotreOrganisation"
+"Serial6"="xxxx-xxxx-xxxx-xxxx-xxxx-xxxx"
+
+Ahead Nero Pack Français : xxx.exe /silent /noreboot /no_ui
+AIM : xxx /s
+
+Alcohol 120%
+Paramètre Silencieux : /verysilent /sp- /norestart
+Paramètre : /verysilent /sp- /norestart
+Si le paramètre ne marche pas : décompresser le .EXE , et lancer le fichier .msi avec le paramètre suivant : /qn REBOOT=Suppress
+Ensuite importez le reg suivant pour l'enregistrement
+CODE
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Alcohol Soft\Alcohol 120%\Info]
+"UserName"="Votre nom"
+"Company"="Votre compagnie "
+"SerialNo"="Votre clé"
+
+Ant Movie Catalog : xxx.exe /verysilent /sp-
+
+Anti-Trojan : xxx.exe /VERYSILENT /SP-
+
+AOL : xxx.exe /SILENT
+
+ATI Driver
+Paramètre Silencieux :
+Téléchargez le dernier driver chez ATI.
+Exécutez le setup avec le paramètre -R
+A la première étape de l'insatllation, il va demander de choisir un dossier temporaire qui ne sera pas vidé après l'installation. Tout à la fin, copiez ce dossier dans $OEM$\$1\Install\Aticatalyst
+(y compris le fichier setup.iss)
+Puis lancez l'installateur depuis votre cd Unattend:
+CODE
+start /wait %systemdrive%\Install\AtiCatalyst\issetup.exe -s
+start /wait %systemdrive%\Install\AtiCatalyst\Driver\setup.exe /s
+start /wait %systemdrive%\Install\AtiCatalyst\CPanel\setup.exe /s
+Elooping02, dit:
+Installer vos dernier driver ATI, sur votre système.
+Ensuitre faire un copier du repertoire C:\ATI\SUPPORT\wxp-w2k-catalyst-8-062-040929a-018115C\Driver\2KXP_INF
+et le coller dans $OEM$\$1\Drivers
+Là renomer le repertoire "2KXP_INF" en "Graph"
+Et ajouter la ligne suivante dans votre unattend:
+CODE
+[Unattended]
+DriverSigningPolicy=Ignore
+OemPnPDriversPath="Drivers\Graph"
+Comme ça, si une carte graphqiue ATI Radeon est presente sur votre système, le drivers sera automatiquement installé.
+Et si c'est une carte Nvidia, il ne sera pas installé.
+
+Avant Browser : xxx.exe /S
+
+AVG Anti-Virus
+Paramètre Silencieux : avgsetup.exe /SCRIPT_FILE \"x:\repertoire\avgsetup.ini\" %1 %2 %3 %4 %5 %6 %7 %8 %9
+Première méthode
+Il faut éditer le fichier avgsetup.ini et mettre :
+CODE
+HIDE:
+DONT_START_APPS:
+NO_WELCOME:
+LOG: "C:\AVG7INST.LOG"
+NAME: "UserName"
+COMPANY: "Company"
+LICNO: "Serial"
+Deuxième méthode
+CODE
+avgsetup.exe /licno XX-XXXXXX-XX-XXX-XXXXX-XXX-XXXX /hide
+Pour ne pas lancer AVG après son installation
+CODE
+start /wait taskkill /F /IM avgemc.exe
+start /wait taskkill /F /IM avgwb.dat
+start /wait taskkill /F /IM avgamsrv.exe
+start /wait taskkill /F /IM avgupsvc.exe
+start /wait taskkill /F /IM avgcc.exe
+
+Azureus
+Paramètre Silencieux : /S
+
+BitDefender : Décompresser : xxx.exe /q
+
+Boot XP : xxx.exe /S
+
+BSPlayer
+Paramètre Silencieux : /n /S
+
+BulletProof FTP Server : xxx.exe /VERYSILENT /SP-
+
+CachemanXP : xxx.exe /S
+Ajouter ce qui suit dans un *.reg en remplaçant à chaque fois les XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX par votre clé d'enregistrement
+[HKEY_LOCAL_MACHINE\SOFTWARE\CachemanXP]
+"Serial"="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+"AdvCache"=dword:00000001
+
+CCleaner : xxx.exe /S
+
+CDex : xxx.exe /S
+
+CloneCD : xxx.exe /S
+Ajouter ce qui suit dans un *.reg en remplaçant les champs par vos informations
+[HKEY_LOCAL_MACHINE\SOFTWARE\SlySoft\CloneCD\CDKey]
+"Name"="VotreNom"
+"Serial"="VotreNuméroDeSérie"
+[HKEY_CURRENT_USER\Software\SlySoft\CloneCD\Settings]
+"LocaleName"="FR"
+"LogWindowOpen"=dword:00000000
+"LegalNotAgain"=dword:00000001
+"AutoUpdateCheck"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\SlySoft\CloneCD\Settings]
+"CloneCDTray"=dword:00000001
+"LocaleName"="FR"
+
+CloneCD 4.x/ CloneDVD
+Paramètre Silencieux : setupclonecd.exe /S
+Remarque : mais il demande de redémarrer le pc.. Pour simuler le clavier :
+Contenu du fichier clonecd.cmd
+CODE
+start /wait %systemdrive%\install\clonecd\clonecd.vbs
+regedit /s %systemdrive%\install\clonecd\ccd4.reg
+clonecd.vbs
+CODE
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WshShell.Popup "Ne pas bouger la souris ou toucher au clavier!",5," - Warning - ",48
+WshShell.Run ("%systemdrive%\install\clonecd\setupclonecd4317.exe /S")
+WScript.Sleep 16000
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Quit
+ccd4.reg
+CODE
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Elaborate Bytes\CloneCD\CDKey]
+"Name"=
+"Serial"=
+[HKEY_CURRENT_USER\Software\SlySoft\CloneCD\Settings]
+"LocaleName"="FR"
+"LogWindowOpen"=dword:00000000
+"LegalNotAgain"=dword:00000001
+"AutoUpdateCheck"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\SlySoft\CloneCD\Settings]
+"CloneCDTray"=dword:00000001
+"LocaleName"="FR"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"CloneCDTray"=-
+
+Pour CloneDVD, voici le fichier ccd4.reg
+CODE
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Elaborate Bytes\CloneDVD\Key]
+"Key"="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxxXXXXXXxxXXXXXXXXXXXXXXXXXXX"
+
+CloneCD 5.x
+Paramètre Silencieux : clonecd.exe /S
+L'enregistrement :
+CODE
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Elaborate Bytes\CloneCD\CDKey]
+"Serial"=hex:******************************************************\
+**
+"Name"="*********"
+
+Command Prompt Explorer Bar : xxx.msi /qn
+
+Connectix Virtual PC IS Script : xxx.msi /qn
+
+Connectix Virtual PC : xxx.msi /qn
+
+ConTEXT : xxx.exe /verysilent
+
+Creative Audigy
+Paramètre Silencieux :
+Copiez le contenu du CD dans $OEM$\$1\Install\CreativeAudigy
+(càd : Audio, CTRun, CTShared, License, Manual, Register and Warranty)
+Lancez l'installateur avec le paramètre -R : càd : Setup -R pour avoir le fichier .iss
+Placez le dans : $OEM$\$1\Install\CreativeAudigy\Audio\Setup
+et La commande pour le rendre silencieux ça sera:
+CODE
+start /wait %systemdrive%\Install\CreativeAudigy\Audio\Setup\setup.exe -s
+
+Creative Audigy/Live Driver install Tool
+Paramètre Silencieux : CTZAPXX.exe /q /o /r
+
+Customizer XP : xxx.exe /VERYSILENT /SP-
+
+Daemon Tools
+Paramètre Silencieux : Daemon.msi /QB Reboot=Suppress
+
+dBpowerAMP Music Converter : xxx.exe <Silent>
+
+DirectX9b
+Paramètre Silencieux : dxsetup.exe /opk
+
+DirectX9C
+Paramètre Silencieux : directx_9c_redist\dxsetup.exe /silent (décompresser d'abord)
+Benroger dit :
+POUR Windows XP SP1 et 2000
+Resultat:
+QUOTE
+Pour une installation complètememnt silencieuse:
+nom_du_package.exe /Q:A /R:N /C:"dxsetup /opk"
+Pour une installation silencieuse avec une barre de progression:
+nom_du_package.exe /Q:A /R:N /C:"dxsetup /windowsupdate"
+Sachez aussi que vous pouvez utilser ce switch pour une install silencieuse avec le dernier Directx 9.0c sans suivre ce tuto " /silent "
+
+Diskkeeper 8.x
+Paramètre Silencieux : diskpr.exe /s /v/qn
+Update.exe /s /v/qn -> la mise à jour
+patch.exe /S -> le patch FR
+Pour diskeeper il faut decompresser le fichier et en extraire le setup.exe
+start /wait %CDROM%\APPS\diskeeper\setup.exe /S /v/qn
+
+Diskkeeper 9.x Auteur : Luvidoc
+Paramètre Silencieux : /s /v"/qn SMART=\"YES\" CREATEDESKTOPSHORTCUT=1 "
+QUOTE
+Paramètre : /s /v"/qn SMART=\"YES\" CREATEDESKTOPSHORTCUT=1 "
+- SMART="YES"
+Configure Diskeeper Smart Scheduling pour tous les disques durs
+- CREATEDESKTOPSHORTCUT=1
+Permet de créer un raccourcis sur le bureau
+Pour le patch FR :
+CODE
+xxx.exe /S
+
+Divx codec : xxx.exe /S
+
+Divx Pro 5.2.X
+Paramètre Silencieux : /s /n Ou /S /n
+Pour l'enregistrement :
+Il faut importer le dossier
+HKEY_LOCAL_MACHINE\SOFTWARE\Protexis qu'on aura exporté auparavant.
+Et copier le fichier KGyGaAvL.SYS dans le répertoire %systemroot%\system32 . C'est un fichier créé par l'enregistrement de Divx. Il est "caché"
+
+Divx video duplicator 3 Auteur : Elooping02
+Paramètre Silencieux :
+Pour Div-x video duplicator 3, il faut utiliser un ficheir .VBS dont voici le code:
+QUOTE
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WshShell.Popup "Ne pas bouger la souris ou toucher au clavier!",5," - Warning - ",48
+WshShell.Run ("%systemdrive%\Apps\duplicator3\setup.exe")
+WScript.Sleep 20000
+WshShell.AppActivate "Installation de Digital Video Duplicator 3.00"
+WScript.Sleep 5000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 5000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 5000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 5000
+WshShell.SendKeys "(Ton N° de serie)"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 1000
+WshShell.SendKeys "%{P}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ }"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 1000
+WshShell.SendKeys "%{O}"
+WScript.Sleep 1000
+WshShell.SendKeys "(C:\Program Files\Duplicator3)"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 6000
+WshShell.SendKeys "%{C}"
+WScript.Sleep 60000
+WshShell.SendKeys "{RIGHT}"
+WScript.Sleep 3000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 3000
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 2000
+WshShell.SendKeys "(Ton nom d'utilisateur)"
+WScript.Sleep 2000
+WshShell.SendKeys "{TAB 3}"
+WScript.Sleep 2000
+WshShell.SendKeys "(Ton adresse mail)"
+WScript.Sleep 2000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 3000
+WshShell.SendKeys "{DOWN}"
+WScript.Sleep 2000
+WshShell.SendKeys "{ENTER}"
+WScript.Sleep 2000
+WshShell.RegDelete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Digital Video Duplicator OLR"
+WScript.Sleep 1000
+WScript.Quit
+
+Download Accelerator : xxx.exe /S Reboot=Suppress
+
+Dr. Divx : xxx.exe /S
+
+DU Meter : xxx.exe /VERYSILENT /SP-
+
+DVD Region : xxx.exe /VERYSILENT /SP-
+
+DVDShrink : xxx.exe /VERYSILENT /SP-
+
+Easy CD Creator : xxx.exe /s /v/qn
+
+Easy CD-DA Extractor : xxx.exe /S /W
+Ajouter ce qui suit dans un *.reg en remplaçant les champs par vos informations
+[HKEY_CURRENT_USER\Software\Poikosoft\Easy CD-DA Extractor 7]
+"ba8"="VotreAdresseEmail"
+"ba9"="VotreNumeroDeSerie"
+
+EasyPHP : xxx.exe /VERYSILENT /SP- (lance une fenêtre Internet après l'installation)
+
+eMule : xxx.exe /S
+
+EmulePlus v1.1 Auteur : saroumane
+Paramètre Silencieux : /SILENT ou /VERYSILENT /NORESTART
+
+ExplorerXP : xxx.exe /S
+
+F - Secure Internet Security 2005
+Paramètre Silencieux : Setup.exe /silent
+
+FileZilla : xxx.exe /S
+
+Fireburner : xxx.exe /qn
+
+FlashFXP : xxx.exe /silent
+
+FlashGet : xxx.exe /s
+Ajouter ce qui suit dans un *.reg en remplaçant les champs par vos informations
+[HKEY_CURRENT_USER\Software\JetCar\JetCar\General]
+"RegName"="VotreAdresseEmail"
+"RegPass"="VotreNumeroDeSerie"
+"RegDisp"="VotreNom"
+
+GetDiz v2.6 NFO VIEWER
+Paramètre Silencieux : setup.exe /s
+
+Gimp
+Paramètre Silencieux : gimp.exe /silent
+
+Google Toolbar : xxx.exe /s /qn
+
+ICQ : xxx.exe /S (lance ICQ après l'installation)
+
+ISO Buster : xxx.exe /VERYSILENT /SP- (lance ISO Buster après l'installation)
+
+Internet Explorer 6.2
+Paramètre Silencieux : iesetup.exe /Q:A /R:N
+
+Jasc Paint Shop Pro : Récupérez le msi : xxx.msi /qn
+
+JavaVM : xxx.exe /Q:A /R:N
+
+Java Sun : xxx.exe /s /v/qn ou /s /v"/qn ADDLOCAL=jrecore IEXPLORER=1" (intègre à Internet Explorer)
+
+Java 2 Runtime,SE v1.4.2_05
+Paramètre Silencieux : Java.exe /S /v/qn
+
+Journal Viewer : xxx.msi /qn
+
+K-Lite Codec Pack : xxx.exe /silent /COMPONENTS="voscomposants"
+Remplacez ce qu'il y a après COMPONENTS par les composants que vous souhaitez installer (mpclassic,divxdec,divx,divxmpeg4,xviddec,xvid,mpeg2ligos,3ivxdec,3ivx,wmv,
+vp3,vp6,dvd,indeo,indeo4,indeo32,i263,huffyuv,msmpeg4,qtcodec,qtdirectshow,
+qtcpl,qtplugins,realcodec,realdirectshow,mp3audio,wmaaudio,ac3audio,oggvorbis,
+aac,musepack, voxware,ape,oggvorbissplitter,vsfilter,gspot,disg400,disffdshow)
+
+K!TV : xxx.exe /qn
+
+Kaspersky Anti-Hacker 1.5.119 Auteur : f_speedy
+Paramètre Silencieux : setup.exe -s -f1"c:\Install\Applications\kah\setup.iss"
+C'est un InstallShield . Donc il faut faire un -R pour récupérer le fichier ISS
+
+Kaspersky Anti-Hacker 1.7.130 Auteur : f_speedy
+Paramètre Silencieux : /S
+
+Kaspersky Antivirus Pro 4.5, 5.x
+Paramètre Silencieux : setup.exe /n /S (il faut décompresser)
+Pour l'enregistrement de la clef:
+QUOTE
+pour l'enregistrement tu va dans
+%ProgramFiles%\Fichiers communs\Kaspersky Lab\
+Là tu trouveras ta clé.
+Ensuite tu fais un clic droit sur le clé -> "ajouter à lenomdelaclé.reg"
+Tu double clic sur l'archive créée, -> option SFX -> option SFX avancée -> dans général, tu mets xomme chemin d'etraction
+%ProgramFiles%\Fichiers communs\Kaspersky Lab\ et dans mode, tu coche réécrire tous les fichier et caché tout
+Ou encore :
+setup.exe /n /S /k "chemin de la clef"
+Exemple : setup.exe /n /S /k kav_pers_pro4.key
+Pour la version 5.x:
+setup.exe /S
+et mettre le fichier clef dans le même répertoire que le setup
+
+KazaaLite ou Kazaa Clean KMD v 2.44
+Paramètre Silencieux : Kazaalite.exe /silent
+
+Kerio Firewall 4.x
+Paramètre Silencieux : Kerio.msi /qb reboot=suppress
+Ou bien
+Paramètre : /s /v"/QN REBOOT=REALLYSUPPRESS"
+Donc : Kerio.exe /s /v"/QN REBOOT=REALLYSUPPRESS"
+
+Logitech MouseWare : Décompresser : Setup.exe -s
+
+Logon Loader : xxx.exe /VERYSILENT /SP-
+
+Look N Stop 2.05
+Paramètre Silencieux : LooknStop_Setup_205.exe -auto
+d'autres switches à ajouter après
+-path "xxx" => pour l'installer dans xxx
+-reg "regfile" => pour appliquer les paramètres directement dans le registre
+-startauto ==> pour lancer l'applicaton à chaque demarrage du xp
+-startmenu ==> pour créer un raccourci dans le menu démarrer
+-reboot => redemarrer la machine si necessaire
+-run ==> démarrer l'application apres s'il n'y a pas de redemarrage
+Ps: pour ne pas rebooter : il ne faut pas ajouter l'option -reboot
+la desinstallation peut aussi etre automatisé:
+CODE
+looknstop -uninstall -auto
+
+Macromedia Dreamweaver
+Paramètre Silencieux : dreamwmx.msi /qb
+
+Macromedia Dreamweaver 2004 Auteur : fouloup
+Paramètre Silencieux : setup.exe -s
+Il faut extraire le fichier .EXE (avec winrar ou autre) et avoir tous les fichiers. Pour avoir le fichier setup.iss dans c:\ , utilisez : setup.exe /r /f1"c:\setup.iss” . Ensuite, copiez ce fichier iss dans le même répertoire que l'installateur puis lancez = setup.exe -s
+
+Mira : xxx.exe /VERYSILENT /SP-
+
+MacAfee : xxx.exe /q
+
+MagicTweak : xxx.exe /silent
+
+Maxthon : xxx.exe /S
+
+Messenger Plus : xxx.exe /SilentInstallNoSponsor
+
+Microsoft Excel : xxx.exe /Q
+
+Microsoft Money 2004 : syspack.msi /qn et money.msi /qn BOOTSTRAPPERLAUNCH=yes
+
+Microsoft PowerPoint : xxx.exe /Q
+
+Microsoft Visual Basic 6 Runtimes : xxx.exe /Q
+
+Microsoft Word : xxx.exe /Q
+
+Microsoft Plus! for Windows XP
+Paramètre Silencieux : plus.msi /Qn
+
+Microsoft PowerPoint
+Paramètre Silencieux : PowerPoint.exe /Q
+
+Microsoft Visual Basic 6 Runtimes
+Paramètre Silencieux : vbrun6.exe /Q
+
+Microsoft Word
+Paramètre Silencieux : word.exe /Q
+
+Mira 2.2
+Paramètre Silencieux : setup.exe /VERYSILENT /SP-
+
+MSN Messenger : Décompressez : xxx.msi /qb
+
+MobyDock : xxx.exe /S
+
+Movie Maker 2.0 : xxx.msi /QB
+
+MyIE2 : xxx.exe /S
+
+Nero Burning ROM 6.0
+Paramètre Silencieux : Nero6xxxxx.exe /SILENT /NOREBOOT /SN=xxxx-xxxx-xxxx-xxxx-xxxx-xxxx /WRITE_SN
+
+Net Framework 1.1
+Paramètre Silencieux : msiexec.exe /I netfx.msi /qb REBOOT=Suppress
+
+Norton : les mises à jours
+Paramètre Silencieux :
+Si vous avez les mises à jours de norton (téléchargez depuis leur site : 'http://www.symantec.com/avcenter/download/pages/FR-N95.html
+vous pouvez les installer automatiquement .
+Pour cela, décompressez le fichier dans un répertoire. Compressez tous ces fichiers (sauf le fichier zdone.dat) en .RAR , et rendez-le auto-extractible pour l’installer dans le répertoire :
+%programfiles%\Common Files\Symantec Shared\VirusDefs\Incoming\
+Ensuite, avec un fichier batch : copiez le fichier ZDONE.DAT dans ce même repertoire
+voilà
+
+Norton Ghost 9 fr Auteur : ledynamiteur
+Paramètre Silencieux :
+Editer le fichier MSI avec Wininstall le 2003 et aller dans les condition pour supprimer l'obligation d'installer par le setup! on recompresse le MSI et on le colle à la place de l'autre en appliquant le param silencieux /QB Reboot=Supress et hop le tour est joué!
+
+Norton Internet security 200x
+Paramètre Silencieux : /O REBOOT=ReallySuppress /QB
+créer un fichier .reg
+CODE
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Symantec\CCPD-LC\KStore\00000082\0000000a\0000000e]
+"Key"="XXxXX-XXXXx-XXXx-XXXXx-XxXxx"
+Ensuite créer un fichier batch :
+CODE
+ECHO Enregistrment de Norton Internet SecurityProfessional 2004....
+REGEDIT /S %systemdrive%\app\norton\norton.reg
+ECHO.
+ECHO Installation
+start /wait %systemdrive%\app\Norton\SYMSETUP.EXE /O REBOOT=ReallySuppress /QB
+
+Norton Personnal Firewall 2003
+Paramètre Silencieux : NPF.exe /qb
+
+Norton Systemworks 200X
+Paramètre Silencieux : Setup.exe /qn Reboot=Suppress
+
+Norton AntiVirus : nav.msi /QB
+Copiez l'intégralité du CD de Norton AntiVirus. Le fichier d'installation (NAV.MSI) se trouve dans le dossier NAV du CD de Norton, c'est donc une commande du style NAV\NAV.MSI /QB que devra contenir votre batch
+Norton Internet Security : xxx.exe /O REBOOT=ReallySuppress /QB
+Ajouter ce qui suit dans un *.reg en remplaçant les XXX-XXX-XXX-XXX-XXX-XXX par votre clé d'enregistrement
+[HKEY_LOCAL_MACHINE\SOFTWARE\Symantec\CCPD- LC\KStore\00000082\0000000a\0000000e]
+"Key"="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx"
+
+Norton Systemworks : xxx.exe /qn Reboot=Suppress
+O&O Defrag : Décompresser l'exe : xxx.msi /qn
+Ajouter ce qui suit dans un *.reg en remplaçant les champs par vos informations
+[HKEY_LOCAL_MACHINE\SOFTWARE\O&O\O&ODefrag\6.0\
+Pro\licenses]
+"User"="VotreNom"
+"Company"="VotreOrganisation"
+"SerialNo"="XXXX-XXXXX-XXXXX-XXXXX-XXXX"
+
+O&O defrag pro
+Paramètre Silencieux : setup.msi /qn (Décompresser le EXE)
+Enregistrement:
+CODE
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\O&amp;O\O&amp;O Defrag\6.0\Pro\licenses]
+"User"="Utilisateur"
+"Company"="anonyme"
+"SerialNo"="XXXX-XXXXX-XXXXX-XXXXX-XXXX"
+
+OpenOffice.org : setup.exe -r %systemdrive%\applications\OOo\response.txt
+Décompressez le contenu de l'archive de OpenOffice.org dans $OEM$\$1\applications\OOo. Créez un nouveau fichier reponse.txt dans ce dossier dans lequel vous mettez ceci :
+[Environment]
+InstallationMode=INSTALL_NORMAL
+InstallationType=STANDARD
+DestinationPath=C:\Program files\OpenOffice.org
+StartProcedure=MyStartProc
+EndProcedure = MyEndProc
+
+[Windows_Desktop_Integration]
+Register4MsWord=Yes
+Register4MsExcel=Yes
+Register4MsPowerPoint=Yes
+RegisterAsDefaultHtmlEditor=No
+
+[Java]
+JavaSupport = preinstalled_or_none
+
+[Procedures]
+Sub PostSetup
+SetReboot( False )
+End Sub
+HideSetup
+
+Opera
+Paramètre Silencieux : setup.Exe /s
+
+Overnet 0.53
+Paramètre Silencieux : >>> Il faut utiliser installrite <<<
+
+Partition Magic : xxx.exe /S /v/qn
+
+PC Cillin : xxx.msi /qb REBOOT=Supress
+
+PDF Creator GNU script version : xxx.exe /silent
+
+PeerGuardian
+Paramètre Silencieux : peerg.Exe /VERYSILENT /SP-
+
+Perfect Disk : xxx.msi /qn
+
+PowerArchiver : xxx.exe /verysilent /sp-
+
+PowerDesk : xx.exe /S /N /LANG=ENG
+
+
+QCD Player
+Paramètre Silencieux : qcd411.exe /S
+
+Quick Menu Builder 1.31
+Paramètre Silencieux : qmb.exe /S (Si l'application démarre après son installation, faire taskkill /f /im qmb.exe)
+
+Quickpar
+Paramètre Silencieux : /S
+
+Quicktime 2.12
+Paramètre Silencieux : quicktime.msi /qb
+
+QuickTime Alternative
+Paramètre Silencieux : quicktimealtxxx.exe /VERYSILENT /SP-
+
+Real Alternative : xxx.exe /VERYSILENT /SP-
+
+RealPlayer : xxx.exe -s
+
+RealVNC : xxx.exe /silent /sp-
+
+Record Now Max : Décompresser : xxx.msi /qn REBOOT=Suppress
+
+RegCleaner : xxx.exe /VERYSILENT /SP-
+
+Registry Optimizer
+Paramètre Silencieux : regopt.msi /qb
+
+Resplendent Registrar : xxx.exe /S
+
+Satsuki Decoder Pack 1.X
+Paramètre Silencieux : satsuki.exe /S
+
+Send To Toys
+Paramètre Silencieux : Send_To_Toys.exe /SILENT /SP-
+
+Shareaza : xxx.exe /S
+
+Shockwave and Flash player
+Paramètre Silencieux : Flashshockwavefull.exe /s
+
+SiSoft Sandra : xxx.exe /VERYSILENT
+
+Skype 1.0.0
+Paramètre Silencieux : Skype.exe /Silent
+
+Spybot - Search & Destroy : xxx.exe /verysilent /sp-
+
+SpySweeper : xxx.exe /VERYSILENT
+
+SpywareBlaster : xxx.exe /verysilent
+
+Steganos Internet Anonym : Décompresser : xxx.exe /S
+
+Super Copier
+Paramètre Silencieux : Super.exe /S /D=C:\Program Files\SuperCopier >>> le paramètre /D est facultatif <<<
+
+Sygate Personal Firewall : xxx.exe /QN Reboot=Supress
+
+Symantec Antivirus Corporate 8.1
+Paramètre Silencieux : sav810b821.exe /qn
+
+The Gimp : xxx.exe /silent
+
+TightVNC : xxx.exe /silent
+
+TuneUp Utilities 2004 : xxx.exe /q
+Ajouter ce qui suit dans un *.reg en remplaçant les champs par vos informations
+[HKEY_CURRENT_USER\Software\TuneUp\Utilities\4.0]
+"InstallPath"="C:\\Program Files\\TuneUp Utilities 2004\\"
+"Company"="Votre Organisation"
+"UserName"="VotreNom"
+"RegCode"="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+"LaunchedUpdateWizard"=dword:00000000
+"RemindAgainAfter"=hex:82,20,ca,f3,7a,a6,e2,40
+[HKEY_CURRENT_USER\Software\TuneUp\Utilities\4.0\
+Registry Cleaner]
+"LastRun"=hex:79,12,61,92,bb,a2,e2,40
+[HKEY_CURRENT_USER\Software\TuneUp\Utilities\4.0\System Optimizer]
+"LastSARun"=hex:59,63,a8,33,bb,a2,e2,40
+"OCMFixedRegProblems"=dword:0000002f
+"OCMGainedDiskSpace"=dword:00000000
+"LastOCMRun"=hex:97,57,fd,93,bb,a2,e2,40
+[HKEY_CURRENT_USER\Software\TuneUp\Utilities\4.0\
+WelcomeScreen]
+"DisableCounter"=dword:00000001
+"ws_SystemControl"=dword:00000000
+"ws_DiskCleaner"=dword:00000001
+"ws_SystemOptimizer"=dword:00000001
+
+Tweaknow : xxx.exe /VERYSILENT /SP-
+
+TweakXP Pro : xxx.exe /qn
+
+UltraEdit : xxx.exe /silent
+
+ViewSonic Wizard
+Paramètre Silencieux : setup.exe /verysilent
+
+VmWare 4.5
+Paramètre Silencieux : vmware.exe /S /v/qn
+
+VNC
+Paramètre Silencieux : vnc.exe /verysilent
+
+Winamp
+Paramètre Silencieux : winamp.exe /S
+win.vbs
+CODE
+Set WshShell = WScript.CreateObject("WScript.Shell")
+WshShell.Run ("%systemdrive%\Applications\Winamp.exe /S")
+WScript.Sleep 16000
+WshShell.SendKeys "{TAB}"
+WScript.Sleep 1000
+WshShell.SendKeys "{ENTER}"
+WScript.Quit
+CODE
+Start /wait C:\Applications\Win.vbs
+Taskkill.exe /F /IM Winamp.exe
+
+Winbar
+Paramètre Silencieux : winbar.exe /S
+
+Windows Media Player 9 Bonus Pack
+Paramètre Silencieux : WMP9Bonus.exe /q
+
+Windows Media Player 10 : xxx.exe /q
+
+Windows XP Support Tools : xxx.msi /qn
+
+Windriver Ghost 2.02
+Paramètre Silencieux : /S
+
+Winamp : xxx.exe /S (lance Winamp après l'installation)
+
+WinBar : xxx.exe /S
+
+WinISO : xxx.exe /VERYSILENT /SP-
+
+WinRAR : xxx.exe /s
+
+Works 7
+Paramètre Silencieux : works7.msi /qb
+
+WS FTP Pro : xxx.exe /s /v/qn
+
+Yahoo Messenger : xxx.exe /s (lance un programme après l'installation)
+
+Yahoo Pops : xxx.exe /s /v /qn
+
+ZoneAlarm : xxx.exe /s /noreboot
+vertion enregistre Paramètre Silencieux : ZA.exe /s /i /noreboot /lickey XXXXXXXXXXXXXXXXXXXXX
+
+7-Zip
+Paramètre Silencieux : -y /q /r:n 

@@ -1,0 +1,15 @@
+
+ECHO Pour sauvegarder les raccourcis winamp enregistres,
+ECHO copiez le paragraphe "[gen_hotkeys]" en entier,
+ECHO disponible vers la fin du fichier winamp.ini
+ECHO.
+ECHO Ce fichier va maintenant s'ouvrir pour que vous puissez proceder.
+ECHO Une fois le fichier ferme, un deuxieme s'ouvrira,
+ECHO copiez alors le paragraphe dans ce deuxieme fichier,
+ECHO et n'oubliez pas de sauvegarder (Ctrl-S).
+PAUSE
+
+START /WAIT notepad.exe "%APPDATA%\Winamp\winamp.ini"
+
+ECHO. > "%DATA%\appconfig\winamp\WinampHotKeys.txt"
+START /WAIT notepad.exe "%DATA%\appconfig\winamp\WinampHotKeys.txt"

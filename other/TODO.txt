@@ -1,0 +1,32 @@
+﻿SCRIPTS DE RAPPEL/AIDE :
+	rappel pour noter taille des partitions, leur label, leur lettre de lecteur
+	rappel sur program files
+	rappel sur mise à jour des dépôts
+	rappel sur les favoris
+	rappel pour les clés de produits
+	rappel pour les bases de données
+	rappel pour les mots de passes stockés/cryptés, mdp réseau
+	
+SCRIPTS POUR LES DEPOTS :
+	commit
+	checkout
+	update
+
+SCRIPTS POUR LES SYNCHRONISATION :
+	documents
+	logiciels
+	mutltimedia
+	temporaire
+	universite
+	
+Récupérer associations de fichiers :
+HKEY_USERS\S-1-5-21-995842999-1378769481-840693436-1000\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts
+
+Sauvegarder la barre des tâches : 
+"%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband
+
+Proposer un emplacement dans config.ini pour les fichiers reg à importer
+Ajouter au programme :
+sprintf(command, "FOR /F \"tokens=*\" %%A IN ('DIR /S /B %s') DO (REG IMPORT %%A)", configval[REGFILES]);
+system(command);

@@ -1,0 +1,2 @@
+
+TYPE "%DATA%\appconfig\winamp\WinampHotKeys.txt" >> "%APPDATA%\Winamp\winamp.ini"

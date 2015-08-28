@@ -1,0 +1,72 @@
+﻿Installations, désinstallations, partionnement, cryptage
+***************************************************************
+- Désinstaller logiciels inutiles
+- Supprimer %APPDATA%\Nero
+- Installations silencieuses de 
+		EASEUS, MSE, MBAM, Prey
+		VirtualBox, SetPoint, AxCrypt, TortoiseSVN, TeamViewer, Samsung Drivers, DFX11+Crack
+		Comodo
+- Optimiser MSCONFIG
+- Redimensionnement des partitions (EASEUS)
+		C: 120Go
+		D: 100Go
+		I: 30 Go
+		H: 50Go
+- Cryptage des partitions I et H (Projets et Multimedia) (TrueCrypt)
+
+
+
+Mises à jour, copie des données
+**************************************
+- Restaurer NetworkKeys
+- Installer mises à jour
+- Dépaqueter applications portables dans C:\Apps
+- Monter Freecom via TrueCrypt
+- Copier données (Projets, Multimedia, Data, Apps, GNUtils)
+- Installation de Cygwin et MinGW (MSYS inclus)
+
+
+
+Optimisation, personnalisation, nettoyage
+************************************************
+- Désactiver Centre de Maintenance
+- Patcher Windows avec Universal Theme Patcher
+- Restaurer Themes, Gadgets, Bibliothèques, Favoris, Liens, SendTo, StartUp, Barre des tâches
+- Restaurer configurations (SetPoint et VirtualBox+VMs) 
+- Optimiser le menu Nouveau
+		Document ODT (LibreOffice)
+		Batch File (@ECHO OFF [...] PAUSE)
+		Source C
+		Header C
+		Image Bitmap
+		Document texte
+- Régler le PATH (GNUtils)
+- Cacher les lettres de lecteur (I, H, F)
+- Optimiser les associations de fichiers
+		.odt : LibreOffice
+		.txt;.ini;.inf;.log : Notepad++
+		.pdf : SumatraPDF
+		.c;.h : Geany
+		.zip; .tar; .arc; .7z; .rar; .cab; .wim; etc... ExtractNow
+- Appliquer modifications au registre
+		Suppression clés inutiles
+		PeaZip sur fichier/archive
+		Console2 sur background
+		Eraser sur fichier/dossier
+		CDBurnerXP sur musique
+		Everything sur dossier/background
+		GCC sur source C
+		MP3Gain sur musique/dossier
+		Rename-it! sur fichier
+		Ant Renamer 2 sur dossier
+		Photofiltre sur image
+		ResourceExtract sur dll/exe/...
+		Universal Extractor sur dll/exe/...
+		Similarity sur dossier
+		Spek sur musique
+		Tag&Rename sur dossier/musique
+		TrackFolderChanges sur dossier
+		Windirstat sur dossier
+		Modifier .bat : ouvrir dans notepad++
+- Nettoyer avec un coup de Clean After Me et Notification Area Cleaner
+- Réoptimiser MSCONFIG

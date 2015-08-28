@@ -1,0 +1,14 @@
+
+REM - Aller dans C:\Users\Timmy\AppData\Roaming\Winamp\Plugins
+REM - Modifier gen_ml.ini :
+REM 	- Ajouter la ligne suivante en fin de fichier :
+REM 		writeratings=1
+REM 	- Enregistrer
+
+REM grep doit être disponible dans le PATH et winamp déjà installé
+FOR /F "tokens=*" %%A in ('grep "writeratings=1" %APPDATA%\Winamp\Plugins\gen_ml.ini') DO (
+	IF "%%A" EQU "" (
+		ECHO writeratings=1 >> "%APPDATA%\Winamp\Plugins\gen_ml.ini"
+		ECHO La ligne "writeratings=1" a bien ete ajoutee a gen_ml.ini.
+	) ELSE ECHO Le fichier gen_ml.ini a deja ete modifie.
+)

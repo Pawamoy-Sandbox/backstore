@@ -1,0 +1,6 @@
+
+REM SWITCH doit être disponible sur l'ordinateur
+
+SET PROFILE=
+FOR /F %%A in ('DIR /B %APPDATA%\Mozilla\Firefox\Profiles') DO SET PROFILE=%%A
+SWITCH "%APPDATA%\Mozilla\Firefox\Profiles\%PROFILE%\prefs.js" "browser.bookmarks.autoExportHTML\", false" "browser.bookmarks.autoExportHTML\", true"

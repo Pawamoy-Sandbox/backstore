@@ -1,0 +1,4 @@
+
+IF EXIST "%APPDATA%\Winamp\winamp.ini" (
+	COPY /Y "%APPDATA%\Winamp\winamp.ini" "%DATA%\appconfig\winamp"
+)

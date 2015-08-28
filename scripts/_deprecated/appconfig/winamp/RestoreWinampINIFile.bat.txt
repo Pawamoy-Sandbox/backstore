@@ -1,0 +1,7 @@
+
+IF EXIST "%APPDATA%\Winamp\winamp.ini" (
+	IF EXIST "%DATA%\appconfig\winamp\winamp.ini" (
+		DEL "%APPDATA%\Winamp\winamp.ini"
+		COPY /Y "%DATA%\appconfig\winamp\winamp.ini" "%APPDATA%\Winamp"
+	) ELSE ECHO Aucune sauvegarde de winamp.ini trouvee
+) ELSE ECHO Winamp ne semble pas etre installe... annulation.

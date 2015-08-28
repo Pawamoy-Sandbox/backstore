@@ -1,0 +1,4 @@
+
+SET FFPFBKUP=%DATA%\appconfig\firefox\profile
+XCOPY /E /Y "%APPDATA%\Mozilla\Firefox\Profiles" "%FFPFBKUP%\Profiles"
+COPY /Y "%APPDATA%\Mozilla\Firefox\profiles.ini" "%FFPFBKUP%"

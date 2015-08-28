@@ -1,0 +1,12 @@
+
+:: ARGUMENT = %DATA%\appconfig\firefox\bookmarks
+SET PROFILE=
+FOR /F %%A in ('DIR /B %APPDATA%\Mozilla\Firefox\Profiles') DO SET PROFILE=%%A
+IF EXIST "%APPDATA%\Mozilla\Firefox\Profiles\%PROFILE%\bookmarks.html" (
+	COPY /Y "%APPDATA%\Mozilla\Firefox\Profiles\%PROFILE%\bookmarks.html" %1
+) ELSE (
+	"%BACKUP%\appconfig\firefox\bookmarks\FirefoxAutoExportHTML.bat"
+	"C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+	TASKKILL /F /IM firefox.exe
+	COPY /Y "%APPDATA%\Mozilla\Firefox\Profiles\%PROFILE%\bookmarks.html" "%FFBMBKUP%"
+)
